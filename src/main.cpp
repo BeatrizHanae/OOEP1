@@ -35,31 +35,32 @@ int main (int argc, char ** argv){
     int i, j;
     int celulas;
     int geracao = 0;
-    Glider gabi;
+    Glider glider1;
     Glider memoriag;
 
 
-    while (geracao < gabi.getGeracao()) {
+    while (geracao < glider1.getGeracao()) {
         geracao++;
         for (i=0;i<20;i++){
           for (j=0;j<20;j++){
-            cout << gabi.getMp (i,j) << " ";
+            cout << glider1.getMp (i,j) << " ";
             if (i!=19 && i!=0 && j!=19 && j!=0){
                 celulas = celulasv(memoriag,i,j);
-                if (gabi.getMp(i,j)=='*' && (celulas < 2 || celulas > 3)){
-                    gabi.setMp('-', i, j);
+                if (glider1.getMp(i,j)=='*' && (celulas < 2 || celulas > 3)){
+                    glider1.setMp('-', i, j);
                 }
-                if (gabi.getMp(i,j)=='-' && celulas == 3){
-                    gabi.setMp('*', i, j);
+                if (glider1.getMp(i,j)=='-' && celulas == 3){
+                    glider1.setMp('*', i, j);
                 }
-                if (gabi.getMp(i,j)=='*' && (celulas == 2 || celulas == 3)){
-                    gabi.setMp ('*', i, j);
+                if (glider1.getMp(i,j)=='*' && (celulas == 2 || celulas == 3)){
+                    glider1.setMp ('*', i, j);
               }
             }
           }
           cout << endl;
         }
-        memoriag = gabi;
+        memoriag = glider1;
+        std::couts << "\n";
     }
 
 return 0;
