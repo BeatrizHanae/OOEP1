@@ -10,26 +10,19 @@ int celulasv (Campo memoria, int linha, int coluna){
     int vivos= 0;
       if (memoria.getCampo(linha-1,coluna-1) == '*'){
           vivos++;
-      }
-      if (memoria.getCampo(linha-1,coluna) == '*'){
+      } else if (memoria.getCampo(linha-1,coluna) == '*'){
           vivos++;
-      }
-      if (memoria.getCampo(linha-1,coluna+1) == '*'){
+      } else if (memoria.getCampo(linha-1,coluna+1) == '*'){
           vivos++;
-      }
-      if (memoria.getCampo(linha,coluna-1) == '*'){
+      } else if (memoria.getCampo(linha,coluna-1) == '*'){
           vivos++;
-      }
-      if (memoria.getCampo(linha,coluna+1) == '*'){
+      } else if (memoria.getCampo(linha,coluna+1) == '*'){
           vivos++;
-      }
-      if (memoria.getCampo(linha+1,coluna-1) == '*'){
+      } else if (memoria.getCampo(linha+1,coluna-1) == '*'){
           vivos++;
-      }
-      if (memoria.getCampo(linha+1,coluna) == '*'){
+      } else if (memoria.getCampo(linha+1,coluna) == '*'){
           vivos++;
-      }
-      if (memoria.getCampo(linha+1,coluna+1) == '*'){
+      } else if (memoria.getCampo(linha+1,coluna+1) == '*'){
           vivos++;
       }
     return vivos;
@@ -59,14 +52,16 @@ int main (int argc, char ** argv){
     } else if (numero == 2){
       vida = block;
     } else if (numero == 3){
-      vida = glider;
+    vida = glider;
     } else if (numero == 4){
-      vida = gosper;
+    vida = gosper;
     }
+
+    memoriag = vida;
 
     while (geracao < vida.getGeracao()) {
         geracao++;
-        usleep (100000);
+        usleep (200000);
         for (i=0;i<35;i++){
           for (j=0;j<45;j++){
             cout << vida.getCampo (i,j) << " ";
@@ -74,9 +69,9 @@ int main (int argc, char ** argv){
                 celulas = celulasv(memoriag,i,j);
                 if (vida.getCampo(i,j)=='*' && (celulas < 2 || celulas > 3)){
                     vida.setCampo('-', i, j);
-                }
-                if (vida.getCampo(i,j)=='-' && celulas == 3){
-                    vida.setCampo('*', i, j);
+                  }
+                  if (vida.getCampo(i,j)=='-' && celulas == 3){
+                      vida.setCampo('*', i, j);
                 }
                 if (vida.getCampo(i,j)=='*' && (celulas == 2 || celulas == 3)){
                     vida.setCampo('*', i, j);
