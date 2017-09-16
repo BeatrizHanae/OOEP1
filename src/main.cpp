@@ -1,66 +1,92 @@
 #include <iostream>
 #include "glider.hpp"
-#include "matriz.hpp"
+#include "campo.hpp"
+#include "block.hpp"
+#include "blinker.hpp"
+#include "gosper.hpp"
+#include <unistd.h>
 
-int celulasv (Glider memoria, int linha, int coluna){
+int celulasv (Campo memoria, int linha, int coluna){
     int vivos= 0;
-      if (memoria.getMp(linha-1,coluna-1) == '*'){
+      if (memoria.getCampo(linha-1,coluna-1) == '*'){
           vivos++;
       }
-      if (memoria.getMp(linha-1,coluna) == '*'){
+      if (memoria.getCampo(linha-1,coluna) == '*'){
           vivos++;
       }
-      if (memoria.getMp(linha-1,coluna+1) == '*'){
+      if (memoria.getCampo(linha-1,coluna+1) == '*'){
           vivos++;
       }
-      if (memoria.getMp(linha,coluna-1) == '*'){
+      if (memoria.getCampo(linha,coluna-1) == '*'){
           vivos++;
       }
-      if (memoria.getMp(linha,coluna+1) == '*'){
+      if (memoria.getCampo(linha,coluna+1) == '*'){
           vivos++;
       }
-      if (memoria.getMp(linha+1,coluna-1) == '*'){
+      if (memoria.getCampo(linha+1,coluna-1) == '*'){
           vivos++;
       }
-      if (memoria.getMp(linha+1,coluna) == '*'){
+      if (memoria.getCampo(linha+1,coluna) == '*'){
           vivos++;
       }
-      if (memoria.getMp(linha+1,coluna+1) == '*'){
+      if (memoria.getCampo(linha+1,coluna+1) == '*'){
           vivos++;
       }
     return vivos;
 }
 
 int main (int argc, char ** argv){
-    int i, j;
+    int i, j, numero;
     int celulas;
     int geracao = 0;
-    Glider glider1;
-    Glider memoriag;
+    Campo vida;
+    Campo memoriag;
+    Blinker blinker;
+    Block block;
+    Glider glider;
+    Gosper gosper;
 
+    cout << "Escolha um número para abrir um jogo: " << endl;
+    cout << "Digite 1 para Blinker" << endl;
+    cout << "Digite 2 para Block" << endl;
+    cout << "Digite 3 para Glider" << endl;
+    cout << "Digite 4 para Gosper Glider Gun" << endl;
 
-    while (geracao < glider1.getGeracao()) {
+    cin >> numero;
+
+    if (numero == 1){
+      vida = blinker;
+    } else if (numero == 2){
+      vida = block;
+    } else if (numero == 3){
+      vida = glider;
+    } else if (numero == 4){
+      vida = gosper;
+    }
+
+    while (geracao < vida.getGeracao()) {
         geracao++;
-        for (i=0;i<20;i++){
-          for (j=0;j<20;j++){
-            cout << glider1.getMp (i,j) << " ";
-            if (i!=19 && i!=0 && j!=19 && j!=0){
+        usleep (100000);
+        for (i=0;i<35;i++){
+          for (j=0;j<45;j++){
+            cout << vida.getCampo (i,j) << " ";
+            if (i!=34 && i!=0 && j!=44 && j!=0){
                 celulas = celulasv(memoriag,i,j);
-                if (glider1.getMp(i,j)=='*' && (celulas < 2 || celulas > 3)){
-                    glider1.setMp('-', i, j);
+                if (vida.getCampo(i,j)=='*' && (celulas < 2 || celulas > 3)){
+                    vida.setCampo('-', i, j);
                 }
-                if (glider1.getMp(i,j)=='-' && celulas == 3){
-                    glider1.setMp('*', i, j);
+                if (vida.getCampo(i,j)=='-' && celulas == 3){
+                    vida.setCampo('*', i, j);
                 }
-                if (glider1.getMp(i,j)=='*' && (celulas == 2 || celulas == 3)){
-                    glider1.setMp ('*', i, j);
+                if (vida.getCampo(i,j)=='*' && (celulas == 2 || celulas == 3)){
+                    vida.setCampo('*', i, j);
               }
             }
           }
           cout << endl;
         }
-        memoriag = glider1;
-        std::couts << "\n";
+        memoriag = vida;
+        std::cout << "\n";
     }
 
 return 0;

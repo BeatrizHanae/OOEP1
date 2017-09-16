@@ -1,7 +1,7 @@
 #include <iostream>
-#include "gospergg.hpp"
+#include "gosper.hpp"
 
-Gospergg::Gospergg(){
+Gosper::Gosper(){
     setTamanho (60);
     setCampo ('*',1,25);
     setCampo ('*',2,23);

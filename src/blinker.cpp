@@ -1,13 +1,11 @@
 #include <iostream>
-#include "bliker.hpp"
+#include "blinker.hpp"
 
 Blinker::Blinker(){
     setTamanho(40);
-    setMp ('*',1,2);
-    setMp ('*',2,2);
-    setMp ('*',3,2);
+    setCampo ('*',1,2);
+    setCampo ('*',2,2);
+    setCampo ('*',3,2);
     setGeracao (50);
 
 }
-
-Blinker::~Blinker (){}

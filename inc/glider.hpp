@@ -1,12 +1,11 @@
 #ifndef GLIDER_HPP
 #define GLIDER_HPP
-#include "matriz.hpp"
+#include "campo.hpp"
 
-class Glider :public Matriz {
+class Glider :public Campo {
 
 public:
   Glider ();
-  ~Glider ();
 
 };
 

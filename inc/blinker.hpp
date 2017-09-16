@@ -1,12 +1,11 @@
 #ifndef BLINKER_HPP
 #define BLINKER_HPP
-#include "matriz.hpp"
+#include "campo.hpp"
 
-class Blinker :public Matriz{
+class Blinker :public Campo{
 
 public:
   Blinker ();
-  ~Blinker ();
 
 };
 

@@ -1,12 +1,11 @@
 #ifndef BLOCK_HPP
 #define BLOCK_HPP
-#include "matriz.hpp"
+#include "campo.hpp"
 
-class Block :public Matriz{
+class Block :public Campo {
 
 public:
   Block ();
-  ~Block();
 
 };
 

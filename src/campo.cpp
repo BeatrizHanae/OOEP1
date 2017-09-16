@@ -10,7 +10,6 @@ Campo::Campo(){
       }
     }
     geracao = 0;
-
 }
 
 int Campo::getTamanho(){

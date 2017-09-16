@@ -3,12 +3,10 @@
 
 Glider::Glider(){
     setTamanho (20);
-    setMp('*',1,2);
-    setMp('*',2,3);
-    setMp('*',3,1);
-    setMp('*',3,2);
-    setMp('*',3,3);
+    setCampo('*',1,2);
+    setCampo('*',2,3);
+    setCampo('*',3,1);
+    setCampo('*',3,2);
+    setCampo('*',3,3);
     setGeracao (50);
 }
-
-Glider::~Glider(){}
