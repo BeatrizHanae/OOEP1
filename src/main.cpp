@@ -6,23 +6,32 @@
 #include "gosper.hpp"
 #include <unistd.h>
 
+//Beatriz Hanae Fujimoto (160113814)
+
 int celulasv (Campo memoria, int linha, int coluna){
     int vivos= 0;
       if (memoria.getCampo(linha-1,coluna-1) == '*'){
           vivos++;
-      } else if (memoria.getCampo(linha-1,coluna) == '*'){
+      }
+      if (memoria.getCampo(linha-1,coluna) == '*'){
           vivos++;
-      } else if (memoria.getCampo(linha-1,coluna+1) == '*'){
+      }
+      if (memoria.getCampo(linha-1,coluna+1) == '*'){
           vivos++;
-      } else if (memoria.getCampo(linha,coluna-1) == '*'){
+      }
+      if (memoria.getCampo(linha,coluna-1) == '*'){
           vivos++;
-      } else if (memoria.getCampo(linha,coluna+1) == '*'){
+      }
+      if (memoria.getCampo(linha,coluna+1) == '*'){
           vivos++;
-      } else if (memoria.getCampo(linha+1,coluna-1) == '*'){
+      }
+      if (memoria.getCampo(linha+1,coluna-1) == '*'){
           vivos++;
-      } else if (memoria.getCampo(linha+1,coluna) == '*'){
+      }
+      if (memoria.getCampo(linha+1,coluna) == '*'){
           vivos++;
-      } else if (memoria.getCampo(linha+1,coluna+1) == '*'){
+      }
+      if (memoria.getCampo(linha+1,coluna+1) == '*'){
           vivos++;
       }
     return vivos;
@@ -39,6 +48,7 @@ int main (int argc, char ** argv){
     Glider glider;
     Gosper gosper;
 
+    cout << "\n";
     cout << "Escolha um número para abrir um jogo: " << endl;
     cout << "Digite 1 para Blinker" << endl;
     cout << "Digite 2 para Block" << endl;
