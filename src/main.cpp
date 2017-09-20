@@ -1,3 +1,5 @@
+//Aluna: Beatriz Hanae Fujimoto (160113814)
+
 #include <iostream>
 #include "glider.hpp"
 #include "campo.hpp"
@@ -6,7 +8,6 @@
 #include "gosper.hpp"
 #include <unistd.h>
 
-//Beatriz Hanae Fujimoto (160113814)
 
 int celulasv (Campo memoria, int linha, int coluna){
     int vivos= 0;
