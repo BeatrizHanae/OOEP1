@@ -7,36 +7,7 @@
 #include "blinker.hpp"
 #include "gosper.hpp"
 #include <unistd.h>
-
-
-int celulasv (Campo memoria, int linha, int coluna){
-    int vivos= 0;
-      if (memoria.getCampo(linha-1,coluna-1) == '*'){
-          vivos++;
-      }
-      if (memoria.getCampo(linha-1,coluna) == '*'){
-          vivos++;
-      }
-      if (memoria.getCampo(linha-1,coluna+1) == '*'){
-          vivos++;
-      }
-      if (memoria.getCampo(linha,coluna-1) == '*'){
-          vivos++;
-      }
-      if (memoria.getCampo(linha,coluna+1) == '*'){
-          vivos++;
-      }
-      if (memoria.getCampo(linha+1,coluna-1) == '*'){
-          vivos++;
-      }
-      if (memoria.getCampo(linha+1,coluna) == '*'){
-          vivos++;
-      }
-      if (memoria.getCampo(linha+1,coluna+1) == '*'){
-          vivos++;
-      }
-    return vivos;
-}
+#include <stdlib.h>
 
 int main (int argc, char ** argv){
     int i, j, numero;
@@ -72,12 +43,12 @@ int main (int argc, char ** argv){
 
     while (geracao < vida.getGeracao()) {
         geracao++;
-        usleep (200000);
+        system ("clear");
         for (i=0;i<35;i++){
           for (j=0;j<45;j++){
             cout << vida.getCampo (i,j) << " ";
             if (i!=34 && i!=0 && j!=44 && j!=0){
-                celulas = celulasv(memoriag,i,j);
+                celulas = memoriag.celulasv(memoriag,i,j);
                 if (vida.getCampo(i,j)=='*' && (celulas < 2 || celulas > 3)){
                     vida.setCampo('-', i, j);
                   }
@@ -93,6 +64,7 @@ int main (int argc, char ** argv){
         }
         memoriag = vida;
         std::cout << "\n";
+        usleep (200000);
     }
 
 return 0;
