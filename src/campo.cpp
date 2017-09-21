@@ -33,3 +33,32 @@ int Campo::getGeracao (){
 void Campo::setGeracao (int geracao){
   this -> geracao = geracao;
 }
+
+int Campo::celulasv (Campo memoria, int linha, int coluna){
+    int vivos= 0;
+      if (memoria.getCampo(linha-1,coluna-1) == '*'){
+          vivos++;
+      }
+      if (memoria.getCampo(linha-1,coluna) == '*'){
+          vivos++;
+      }
+      if (memoria.getCampo(linha-1,coluna+1) == '*'){
+          vivos++;
+      }
+      if (memoria.getCampo(linha,coluna-1) == '*'){
+          vivos++;
+      }
+      if (memoria.getCampo(linha,coluna+1) == '*'){
+          vivos++;
+      }
+      if (memoria.getCampo(linha+1,coluna-1) == '*'){
+          vivos++;
+      }
+      if (memoria.getCampo(linha+1,coluna) == '*'){
+          vivos++;
+      }
+      if (memoria.getCampo(linha+1,coluna+1) == '*'){
+          vivos++;
+      }
+    return vivos;
+}
