@@ -21,7 +21,8 @@ public:
   void setCampo (char celula, int linha, int coluna);
   char getCampo (int linha, int coluna);
 
-
+  //outros métodos
+  int celulasv (Campo memoria, int linha, int coluna);
 };
 
 
